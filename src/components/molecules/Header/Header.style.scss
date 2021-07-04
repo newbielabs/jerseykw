@@ -1,0 +1,439 @@
+// HEADER STYLES - @author Asep Fajar Nugraha <kucaykojek@gmail.com>
+
+// Import
+@import '~/assets/css/variables';
+@import '~/assets/css/mixins';
+
+$name: '.header';
+
+#{$name} {
+  position: fixed;
+  z-index: $z-index-top;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px;
+  background: $color-black-light;
+
+  @include noselect;
+  @include prefix(transition, $transition-default);
+
+  @media (min-width: 600px) {
+    height: 70px;
+
+    &.is-scrolled {
+      height: 52px;
+
+      #{$name}-logo {
+        left: 20px;
+        transform: none;
+
+        .logo {
+          width: 70px;
+          height: 70px;
+        }
+      }
+
+      #{$name}-nav {
+        padding-left: 100px;
+        justify-content: flex-start;
+
+        li {
+          width: auto;
+          padding: 0;
+        }
+      }
+
+      #{$name}-search {
+        top: $spacing-small;
+        left: auto;
+        right: $spacing-large;
+        width: auto;
+        transform: none;
+
+        &-input {
+          width: auto;
+          padding: 0;
+          background: transparent;
+
+          i {
+            right: $spacing-large;
+          }
+
+          input {
+            width: 104px;
+            border-color: $color-black-lighter;
+
+            @include prefix(transition, all .2s ease-in-out);
+
+            &:focus {
+              width: 300px;
+              border-color: $color-black-lightest;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    height: 100px;
+
+    #{$name}-wrapper {
+      position: relative;
+      width: 1000px;
+      margin: 0 auto;
+      padding: 0 $spacing-large;
+    }
+
+    #{$name}-logo {
+      .logo {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    #{$name}-nav {
+      li {
+        a {
+          display: block;
+          text-align: center;
+          height: 70px;
+          padding-top: $spacing-small;
+
+          i {
+            display: block;
+            margin: 0;
+            margin-bottom: $spacing-small;
+            font-size: 28px;
+          }
+        }
+      }
+    }
+
+    #{$name}-search {
+      top: 100px;
+    }
+
+    &.is-scrolled {
+      #{$name}-search {
+        position: absolute;
+        &-input {
+          input {
+            width: 200px;
+          }
+        }
+      }
+
+      #{$name}-nav {
+        li {
+          a {
+            display: flex;
+            text-align: center;
+            height: 52px;
+            padding: 0 $spacing-large;
+
+            i {
+              display: block;
+              margin: 0;
+              margin-right: $spacing-medium;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $spacing-medium;
+    height: 100%;
+  }
+
+  &-logo {
+    flex-grow: 1;
+    text-align: center;
+    height: 52px;
+
+    .logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    @media (min-width: 600px) {
+      position: absolute;
+      z-index: $z-index-above;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .logo {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+  &-toggle {
+    &-nav,
+    &-search {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: $radius-small;
+      color: $color-white;
+      outline: none;
+
+      &:hover,
+      &:hover {
+        background: $color-black-lightest;
+      }
+
+      @media (min-width: 600px) {
+        display: none;
+      }
+    }
+  }
+
+  &-nav {
+    font-family: 'Titillium Web', $font-family;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background: $color-black-light;
+    width: 0;
+    height: 100%;
+
+    @include prefix(transition, all .2s ease-in-out);
+
+    &.is-active {
+      left: 0;
+      width: calc(100% - 64px);
+
+      .close {
+        display: block;
+      }
+    }
+
+    li {
+      &.close {
+        display: none;
+        background: $color-branding;
+
+        a {
+          &:hover,
+          &:active {
+            background: $color-branding;
+            color: $color-white;
+          }
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        outline: none;
+        color: $color-white;
+        height: 52px;
+        padding: 0 $spacing-large;
+        font-size: $font-size-h3;
+
+        &:hover,
+        &:active {
+          background: $color-black-lightest;
+          color: $color-branding;
+        }
+
+        i {
+          display: inline-block;
+          margin-right: $spacing-medium;
+          font-size: 18px;
+        }
+      }
+    }
+
+    @media (min-width: 600px) {
+      position: relative;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      left: 0;
+      width: 100%;
+
+      li {
+        width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.close {
+          display: none !important;
+        }
+
+        &.left,
+        &.right {
+          width: calc(50% - 80px);
+        }
+
+        &.left {
+          padding-right: 80px;
+        }
+
+        &.right {
+          padding-left: 80px;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 35px;
+          padding: 0 $spacing-large;
+          border-radius: $radius-small;
+          font-size: $font-size-h4;
+
+          i {
+            display: none;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 900px) {
+      li {
+        a {
+          i {
+            display: block;
+            color: $color-branding;
+          }
+        }
+      }
+    }
+  }
+
+  &-search {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &.is-active {
+      display: block;
+    }
+
+    &::before {
+      position: fixed;
+      z-index: $z-index-above;
+      width: 100%;
+      height: 100%;
+      background: rgba($color-white, 0.9);
+      content: '';
+    }
+
+    &-toggle,
+    &-input {
+      position: absolute;
+      z-index: $z-index-mid;
+    }
+
+    &-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-red;
+      color: $color-white;
+      top: $spacing-big;
+      right: $spacing-big;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+    }
+
+    &-input {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      padding: $spacing-big;
+
+      input {
+        width: 100%;
+        outline: none;
+        font-family: inherit;
+        padding: $spacing-medium $spacing-large;
+        border: 2px solid $color-border;
+        padding-right: 40px;
+
+        &:focus {
+          border-color: $color-branding;
+        }
+      }
+
+      i {
+        position: absolute;
+        z-index: $z-index-above;
+        top: 50%;
+        right: calc(#{$spacing-big} + 16px);
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: $color-border;
+      }
+    }
+
+    @media (min-width: 600px) {
+      display: block;
+      width: 400px;
+      height: auto;
+      top: 70px;
+      left: 50%;
+      background: $color-black-lighter;
+
+      transform: translateX(-50%);
+
+      &::before {
+        display: none;
+      }
+
+      &-toggle {
+        display: none;
+      }
+
+      &-input {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        padding: $spacing-large;
+
+        input {
+          background: $color-black-lighter;
+          border: 1px solid $color-black-lightest;
+          color: $color-white;
+          padding: $spacing-small $spacing-medium;
+          padding-right: 40px;
+
+          &:focus {
+            background: $color-black-lightest;
+          }
+        }
+
+        i {
+          right: calc(#{$spacing-large} + 16px);
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

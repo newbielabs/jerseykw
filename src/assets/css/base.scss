@@ -1,0 +1,327 @@
+// BASE STYLES - @author Asep Fajar Nugraha <kucaykojek@gmail.com>
+
+// Import
+@import './variables';
+@import './mixins';
+
+// Default Tags
+body {
+  min-height: 100vh;
+  font-family: $font-family;
+  font-size: $font-size-h4;
+  line-height: 1.4em;
+  color: $color-text;
+  background-color: $color-body-background;
+	background: url('~/assets/img/bg.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+  &.nav-is-active,
+  &.search-is-active {
+    overflow: hidden;
+
+    &::before {
+      position: fixed;
+      z-index: $z-index-above;
+      width: 100%;
+      height: 100%;
+      background: rgba($color-white, 0.8);
+      content: '';
+    }
+
+    @media (min-width: 600px) {
+      overflow: auto;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+main {
+  position: relative;
+  z-index: $z-index-inline;
+  width: 100%;
+  margin: 0 auto;
+  background: $color-white;
+  padding-top: 52px;
+  padding-bottom: $spacing-huge;
+
+  @media (min-width: 600px) {
+    padding-top: 70px;
+  }
+
+  @media (min-width: 1100px) {
+    padding-top: 100px;
+  }
+}
+
+* {
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  outline: none !important;
+  cursor: pointer;
+  color: $color-branding;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+input,
+button,
+textarea,
+:focus {
+  outline: none;
+}
+
+hr {
+  margin: 16px 0;
+  padding: 0;
+  border: none;
+  border-top: 1px solid $color-border;
+}
+
+// Heading
+@each $name,
+$size in $font-size-list {
+  #{$name} {
+    font-size: $size;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Pseudo
+::-webkit-input-placeholder {
+  color: $color-text-faded;
+  font-weight: $font-weight-medium;
+}
+
+::-moz-placeholder {
+  color: $color-text-faded;
+  font-weight: $font-weight-medium;
+}
+
+:-ms-input-placeholder {
+  color: $color-text-faded;
+  font-weight: $font-weight-medium;
+}
+
+:-moz-placeholder {
+  color: $color-text-faded;
+  font-weight: $font-weight-medium;
+}
+
+// Common Classes
+// Button
+.button {
+  display: inline-flex;
+  border: none;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  background: $color-black-lightest;
+  color: $color-text;
+  border-radius: $radius-medium;
+  padding: 0 $spacing-medium;
+  height: 36px;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: 0;
+  cursor: pointer;
+
+  @include prefix(transition, $transition-default);
+
+  &:hover {
+    @include prefix(box-shadow, inset 0 0 5px rgba($color-black-lighter, .6));
+  }
+
+  // Variant Color
+  &-branding {
+    background: $color-branding;
+  }
+
+  &-orange {
+    background: $color-orange;
+    color: $color-text-invert;
+  }
+
+  // Variant Size
+  &-small {
+    height: 30px;
+    font-size: $font-size-h5!important;
+  }
+
+  &-large {
+    height: 42px;
+    font-size: $font-size-h3!important;
+  }
+
+  &-big {
+    height: 48px;
+    font-size: $font-size-h2!important;
+  }
+
+  &-block {
+    display: flex!important;
+    width: 100%!important;
+  }
+}
+
+// HTML Dynamic Content
+div.html-content {
+  position: relative;
+
+  @each $name,
+  $size in $font-size-list {
+    #{$name} {
+      font-size: $size;
+    }
+  }
+
+  * {
+    max-width: 100%;
+  }
+
+  pre {
+    padding: 12px;
+    border-radius: 6px;
+    background: $color-text-faded;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+
+  blockquote {
+    margin-left: 0;
+    padding-left: 20px;
+    border-left: 2px solid $color-white-darker;
+    font-style: italic;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 12px;
+    border-spacing: 0;
+    border-radius: 6px;
+    border-collapse: separate;
+    border: none;
+    background: inherit;
+    border: 1px solid $color-border;
+
+    tr {
+
+      th,
+      td {
+        padding: 8px;
+        border-top: 1px solid $color-border;
+        border-left: 1px solid $color-border;
+
+        &:first-child {
+          text-align: right;
+          border-left: none;
+
+          font-weight: map-get($font-weight-list, 'medium');
+        }
+      }
+
+      &:first-child {
+        th {
+          border-top: none;
+        }
+      }
+    }
+  }
+}
+
+// Shimmer
+@keyframes shimmer-animate {
+  0%{
+    background-position: -468px 0
+  }
+  100%{
+    background-position: 468px 0
+  }
+}
+
+.shimmer {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border-radius: $radius-medium;
+  animation-duration: 1.25s;
+  animation-iteration-count: infinite;
+  animation-name: shimmer-animate;
+  animation-timing-function: linear;
+  background: $color-white-dark;
+  background: linear-gradient(to right, $color-white-dark 10%, $color-white-darker 18%, $color-white-dark 33%);
+  background-size: 800px 104px;
+}
+
+// Loading Ring
+.loading-ring {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border: 6px solid $color-branding;
+    border-radius: 50%;
+    animation: loading-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: $color-branding transparent transparent transparent;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+}
+
+@keyframes loading-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Page Loader
+.page-loader {
+  position: fixed;
+  z-index: $z-index-super-top;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-body-background, .8);
+
+  .loading-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    @include prefix(transform, translate(-50%, -50%));
+  }
+}

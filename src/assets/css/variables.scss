@@ -1,0 +1,161 @@
+// VARIABLES - @author Asep Fajar Nugraha <kucaykojek@gmail.com>
+
+// Import Google Font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+// Default Variables
+$font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$line-height: 1.4em;
+
+// Font Weight
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+$font-weight-list: (
+  'normal':    $font-weight-normal,
+  'medium':    $font-weight-medium,
+  'semi-bold': $font-weight-semi-bold,
+  'bold':      $font-weight-bold
+);
+
+// Font Size
+$font-size-h1: 20px;
+$font-size-h2: 18px;
+$font-size-h3: 16px;
+$font-size-h4: 14px;
+$font-size-h5: 12px;
+$font-size-h6: 10px;
+$font-size-tiny: 8px;
+
+$font-size-list: (
+  'h1': $font-size-h1,
+  'h2': $font-size-h2,
+  'h3': $font-size-h3,
+  'h4': $font-size-h4,
+  'h5': $font-size-h5,
+  'h6': $font-size-h6,
+  'tiny': $font-size-tiny
+);
+
+// Spacing
+$spacing-tiny: 4px;
+$spacing-small: 8px;
+$spacing-medium: 12px;
+$spacing-large: 16px;
+$spacing-big: 20px;
+$spacing-huge: 30px;
+$spacing-massive: 50px;
+
+$spacing-list: (
+  'zero':      0,
+  'tiny':      $spacing-tiny,
+  'small':     $spacing-small,
+  'medium':    $spacing-medium,
+  'large':     $spacing-large,
+  'big':       $spacing-big,
+  'huge':      $spacing-huge,
+  'massive':   $spacing-massive
+);
+
+// Radius
+$radius-tiny: 2px;
+$radius-small: 4px;
+$radius-medium: 6px;
+$radius-large: 8px;
+$radius-big: 12px;
+$radius-huge: 16px;
+$radius-circle: 50%;
+
+$radius-list: (
+  'tiny':     $radius-tiny,
+  'small':    $radius-small,
+  'medium':   $radius-medium,
+  'large':    $radius-large,
+  'big':      $radius-big,
+  'circle':   $radius-circle,
+);
+
+// Z-Index
+$z-index-below: -1;
+$z-index-inline: 1;
+$z-index-above: 2;
+$z-index-mid: 9;
+$z-index-top: 99;
+$z-index-super: 999;
+$z-index-super-top: 9999;
+
+// Main Color
+$color-branding: #1e963a;
+$color-text: #333;
+$color-text-faded: #999;
+$color-text-invert: #eee;
+$color-disabled: #666;
+$color-border: #aaa;
+$color-body-background: #f5f5f5;
+
+// Semantic Color
+$color-black: #000;
+$color-black-light: #111;
+$color-black-lighter: #222;
+$color-black-lightest: #333;
+
+$color-white: #fff;
+$color-white-dark: #eee;
+$color-white-darker: #ddd;
+$color-white-darkest: #ccc;
+
+// https://www.colorhexa.com/0089c9
+$color-blue: #0089c9;
+$color-blue-light: #17b5ff;
+$color-blue-dark: #00557d;
+
+// https://www.colorhexa.com/87cc62
+$color-green: #87cc62;
+$color-green-light: #b3df9c;
+$color-green-dark: #5faa37;
+
+// https://www.colorhexa.com/f5bb23
+$color-orange: #f5bb23;
+$color-orange-light: #f8d26c;
+$color-orange-dark: #c38f09;
+
+// https://www.colorhexa.com/dd0000
+$color-red: #dd0000;
+$color-red-light: #ff2b2b;
+$color-red-dark: #910000;
+
+$color-list: (
+  // Main Color
+  'branding':             $color-branding,
+  'text':                 $color-text,
+  'text-faded':           $color-text-faded,
+  'disabled':             $color-disabled,
+  'border':               $color-border,
+  // Semantic Color
+  'black':                $color-black,
+  'black-light':          $color-black-light,
+  'black-lighter':        $color-black-lighter,
+  'black-lightest':       $color-black-lightest,
+  'white':                $color-white,
+  'white-dark':           $color-white-dark,
+  'white-darker':         $color-white-darker,
+  'white-darkest':        $color-white-darkest,
+  'blue':                 $color-blue,
+  'blue-light':           $color-blue-light,
+  'blue-dark':            $color-blue-dark,
+  'green':                $color-green,
+  'green-light':          $color-green-light,
+  'green-dark':           $color-green-dark,
+  'orange':               $color-orange,
+  'orange-light':         $color-orange-light,
+  'orange-dark':          $color-orange-dark,
+  'red':                  $color-red,
+  'red-light':            $color-red-light,
+  'red-dark':             $color-red-dark
+);
+
+// Misc
+$transition-default: all .2s ease;

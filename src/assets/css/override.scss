@@ -1,0 +1,10 @@
+// OVERRIDE STYLES - @author Asep Fajar Nugraha <kucaykojek@gmail.com>
+
+// Import
+@import './variables';
+@import './mixins';
+
+// Slick
+@import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+.slick-list { margin: 0 -#{$spacing-small}; }
+.slick-slide>div { padding: 0 $spacing-small; }

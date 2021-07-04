@@ -1,0 +1,76 @@
+// Import
+@import '~/assets/css/variables';
+@import '~/assets/css/mixins';
+
+$name: '.footer';
+
+#{$name} {
+	position: relative;
+  z-index: $z-index-above;
+	background: $color-white;
+	background: rgba($color-white, 0.3);
+  font-size: $font-size-h5;
+
+  &::before {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100px;
+    height: 5px;
+    background: $color-branding;
+    content: '';
+  }
+
+  &-about {
+    position: relative;
+    padding: 40px $spacing-big 0 $spacing-big;
+    text-align: center;
+    font-style: italic;
+    color: $color-text-faded;
+
+    span {
+      font-size: $font-size-h1;
+      line-height: $font-size-h4;
+      opacity: 0.2;
+      font-weight: 700;
+
+      .quote-left {
+        top: 0;
+        left: 0;
+        vertical-align: bottom;
+        margin-right: $spacing-medium;
+      }
+
+      .quote-right {
+        bottom: 0;
+        right: 0;
+        vertical-align: top;
+        margin-left: $spacing-medium;
+      }
+    }
+  }
+
+  &-hashtag {
+    margin: $spacing-huge 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Titillium Web', $font-family;
+    font-size: 40px;
+    font-weight: 400;
+    color: $color-black-lightest;
+
+    span {
+      color: $color-branding;
+    }
+  }
+
+  &-copyright {
+    padding: $spacing-large;
+    background: $color-black-light;
+    color: $color-disabled;
+    text-align: center;
+    font-size: $font-size-h6;
+  }
+}

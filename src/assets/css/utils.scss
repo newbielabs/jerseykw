@@ -1,0 +1,226 @@
+// UTILITY CLASSES - @author Asep Fajar Nugraha <kucaykojek@gmail.com>
+
+// Import
+@import './variables';
+
+// Spacing
+@each $name, $value in $spacing-list {
+  .ptop-#{$name} {
+    padding-top: $value!important;
+  }
+  .pright-#{$name} {
+    padding-right: $value!important;
+  }
+  .pbottom-#{$name} {
+    padding-bottom: $value!important;
+  }
+  .pleft-#{$name} {
+    padding-left: $value!important;
+  }
+  .pv-#{$name} {
+    padding-top: $value!important;
+    padding-bottom: $value!important;
+  }
+  .ph-#{$name} {
+    padding-left: $value!important;
+    padding-right: $value!important;
+  }
+  .pall-#{$name} {
+    padding: $value!important;
+  }
+  .mtop-#{$name} {
+    margin-top: $value!important;
+  }
+  .mright-#{$name} {
+    margin-right: $value!important;
+  }
+  .mbottom-#{$name} {
+    margin-bottom: $value!important;
+  }
+  .mleft-#{$name} {
+    margin-left: $value!important;
+  }
+  .pv-#{$name} {
+    margin-top: $value!important;
+    margin-bottom: $value!important;
+  }
+  .ph-#{$name} {
+    margin-left: $value!important;
+    margin-right: $value!important;
+  }
+  .mall-#{$name} {
+    margin: $value!important;
+  }
+  .mtop-reverse-#{$name} {
+    margin-top: -#{$value}!important;
+  }
+  .mright-reverse-#{$name} {
+    margin-right: -#{$value}!important;
+  }
+  .mbottom-reverse-#{$name} {
+    margin-bottom: -#{$value}!important;
+  }
+  .mleft-reverse-#{$name} {
+    margin-left: -#{$value}!important;
+  }
+  .mall-reverse-#{$name} {
+    margin: -#{$value}!important;
+  }
+}
+
+// Border
+@each $name, $color in $color-list {
+  .border-#{$name} {
+    border: 1px solid $color!important;
+  }
+  .border-top-#{$name} {
+    border-top: 1px solid $color!important;
+  }
+  .border-right-#{$name} {
+    border-right: 1px solid $color!important;
+  }
+  .border-bottom-#{$name} {
+    border-bottom: 1px solid $color!important;
+  }
+  .border-left-#{$name} {
+    border-left: 1px solid $color!important;
+  }
+  .border-2-#{$name} {
+    border: 2px solid $color!important;
+  }
+  .border-top-2-#{$name} {
+    border-top: 2px solid $color!important;
+  }
+  .border-right-2-#{$name} {
+    border-right: 2px solid $color!important;
+  }
+  .border-bottom-2-#{$name} {
+    border-bottom: 2px solid $color!important;
+  }
+  .border-left-2-#{$name} {
+    border-left: 2px solid $color!important;
+  }
+}
+
+// Text Thickness
+@each $name, $weight in $font-weight-list {
+  .text-weight-#{$name} {
+    font-weight: $weight!important;
+  }
+}
+
+// Text Size
+@each $name, $size in $font-size-list {
+  .text-size-#{$name} {
+    font-size: $size!important;
+  }
+}
+
+// Text Alignment
+.text-align-left {
+  text-align: left!important;
+}
+
+.text-align-right {
+  text-align: right!important;
+}
+
+.text-align-center {
+  text-align: center!important;
+}
+
+.text-ellipsis {
+  @include ellipsis;
+}
+
+.text-lowercase {
+  text-transform: lowercase!important;
+}
+
+.text-uppercase {
+  text-transform: uppercase!important;
+}
+
+.text-line-through {
+  text-decoration: line-through!important;
+}
+
+.float-left {
+  float: left!important;
+}
+
+.float-right {
+  float: right!important;
+}
+
+.vertical-middle {
+  vertical-align: middle!important;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// Foreground Color
+@each $name, $color in $color-list {
+  .fg-#{$name} {
+    &,
+    &:focus {
+      color: $color!important;
+    }
+  }
+}
+
+// Background Color
+@each $name, $color in $color-list {
+  .bg-#{$name} {
+    background-color: $color!important;
+  }
+}
+
+// Border Radius
+@each $name, $radius in $radius-list {
+  .radius-#{$name} {
+    border-radius: $radius!important;
+  }
+}
+
+// Misc
+.width-100 {
+  width: 100%;
+}
+.width-50 {
+  width: 50%;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.noselect {
+  @include noselect;
+}
